@@ -16,8 +16,8 @@ let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundle_readme)
   echo "Installing NeoBundle..."
   echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
+   !mkdir -p ~/.vim/bundle
+   !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
