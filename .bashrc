@@ -8,3 +8,7 @@ function my-shell-snippets (){
 	echo "find -name *.c -print0 | xargs -0 egrep option.. pattern"
 }
 
+#go path from http://blog.wacul.co.jp/blog/2014/08/22/go/
+export GOPATH=$HOME/go/third-party:$HOME/go/my-project
+export PATH=$HOME/go/third-party/bin:$HOME/go/my-project/bin:$PATH 
+
