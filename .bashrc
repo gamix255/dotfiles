@@ -1,4 +1,7 @@
 #use in bashrc  . $dotfiles-path/.bashrc
+
+shopt -s no_empty_cmd_completion
+
 alias vim-sjis='vim -c ":e ++enc=cp932"' #ichiji shinogini.
 alias git-ssl-no-verify='export GIT_SSL_NO_VERIFY=true'
 
