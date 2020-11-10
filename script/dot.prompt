@@ -1,0 +1,16 @@
+bgchange()
+{
+    if [[ $? == 0 ]]; then
+        tput setab $(($RANDOM % 5 +2 ))
+    else
+        tput setab 1
+    fi
+}
+
+export PS1='$(bgchange) $(tput sgr0)'
+
+function cdpwd() {
+    \cd $1 && echo -n '# ' && pwd
+}
+
+alias cd=cdpwd
