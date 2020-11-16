@@ -1,0 +1,5 @@
+(define default-im-name 'anthy-utf8)
+(define uim-pref-suppress-dot-uim-warning-dialog? #t)
+
+(define-key generic-on-key? '("<Control> " "<Control>\\"))
+(define-key generic-off-key? '("<Control> " "<Control>\\"))
