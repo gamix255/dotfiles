@@ -411,4 +411,17 @@ let g:tagbar_type_ruby = {
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
+endifsyntax on
+
+if has("persistent_undo")
+    set undodir=~/.undodir
+    set undofile
 endif
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'mbbill/undotree'
+call plug#end()
+
+
+nnoremap <F5> 'UndotreeToggle<CR>
