@@ -1,0 +1,57 @@
+#! /bin/echo Please-source
+
+notes_file=notes.md
+
+notes-view() {
+  file=$HOME/$notes_file
+  less +G $file
+}
+
+notes-in() {
+  _notes-newdate
+
+  file=$HOME/$notes_file
+  echo >> $file
+  cat >> $file
+}
+
+notes-write() {
+  _notes-newdate
+  file=$HOME/$notes_file
+  echo >> $file
+  echo $@ >> $file
+}
+
+notes-tail() {
+  file=$HOME/$notes_file
+  tail $file
+}
+
+notes-print () {
+  file=$HOME/$notes_file
+  cat $file
+}
+
+notes-date () {
+  file=$HOME/$notes_file
+  echo >> $file
+  date +"# %Y-%m-%d %T" >> $file
+  echo "=====================" >>  $file
+}
+
+_notes-newdate () {
+  if [ $(ls --full-time notes.md |\
+         awk  '{print $6}') \
+    != $(date +"%Y-%m-%d") ]; then notes-date
+  fi
+}
+
+
+#notes-echo: file>>cat
+#notes-in  : cat >> file
+#notes-text: echo $@ > file
+#notes-tail: tail file
+#notes-view: less file
+
+#if [ $(ls --full-time notes.md | awk  '{print $6}') = $(  date +"%Y-%m-%d") ] ; then echo hoge; else echo fuga; fi
+
