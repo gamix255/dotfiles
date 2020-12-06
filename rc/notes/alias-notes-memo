@@ -1,0 +1,6 @@
+alias メモを見る=notes-view
+alias メモを書く=notes-in
+#notes-write
+alias メモの末尾=notes-tail
+#notes-print () {
+alias メモに日付=notes-date

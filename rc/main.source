@@ -1,0 +1,6 @@
+#!/bin/echo Please-source
+
+cur=$dotfile_path/rc
+. "$cur"/notes/notes.source
+. "$cur"/notes/alias-notes-memo
+
