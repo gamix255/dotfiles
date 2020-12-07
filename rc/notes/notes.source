@@ -16,10 +16,12 @@ notes-in() {
 }
 
 notes-write() {
-  _notes-newdate
-  file=$HOME/$notes_file
-  echo >> $file
-  echo $@ >> $file
+  if [ $# -ne 0 ];then
+    _notes-newdate
+    file=$HOME/$notes_file
+    echo >> $file
+    echo $@ >> $file
+  fi
 }
 
 notes-tail() {
@@ -35,8 +37,9 @@ notes-print () {
 notes-date () {
   file=$HOME/$notes_file
   echo >> $file
+  echo "---" >>  $file
   date +"# %Y-%m-%d %T" >> $file
-  echo "=====================" >>  $file
+#  echo "=====================" >>  $file
 }
 
 _notes-newdate () {
