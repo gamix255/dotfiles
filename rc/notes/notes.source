@@ -58,3 +58,20 @@ _notes-newdate () {
 
 #if [ $(ls --full-time notes.md | awk  '{print $6}') = $(  date +"%Y-%m-%d") ] ; then echo hoge; else echo fuga; fi
 
+
+
+notes-summary () {
+  file=$HOME/$notes_file
+  cat $file |\
+    awk 'BEGIN{TIME="";TITLE=""}
+      /^# 20/{TIME=$1" "$2" "$3;TNR=NR}
+      /^_.*:$/{TAG=$1}
+      /^##/{if (length(TITLE) == 0)
+               {TITLE=$2}}
+      /^---$/{if (TIME !="")
+                {print "notes.md:"TNR":",TIME,TITLE,TAG}
+	      TIME="";TITLE="";TAG="" }' \
+   > $HOME/summary-notes.txt
+   vim $HOME/summary-notes.txt    
+}
+
